@@ -1,0 +1,86 @@
+#map {
+    height: 75vh;
+    width: 100hw; 
+}
+
+h1{ 
+    color: #178150;
+    font-family: Century Gothic;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.container {
+    position:
+    height: 14vh;
+    width: 100vw;
+  }
+
+  .imagen{
+    position: absolute;
+    top: 5px; /* Ajusta según sea necesario */
+    right: 3px; /* Ajusta según sea necesario */
+    max-width: 200px; /* Ancho máximo */
+    height: 60px; /* Altura automática */
+    margin-right: 200px;
+}
+
+.imagen2{
+    position: absolute;
+    top: 5px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    max-width: 200px; /* Ancho máximo */
+    height: 60px; /* Altura automática */
+    margin-right: 10px;
+}
+
+select{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border-color: #000000;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 3px;
+    font-family: century Gothic;
+    font-size: 13px;
+  
+}
+.legend {
+    padding: 2px;
+    font-size: 14px;
+    background-color: rgba(230, 230, 230, 0.8);
+    border-radius: 10px;
+    border-width: 2px;
+    box-shadow: 0 0 15px rgba(244, 236, 236, 0.2);
+    font-family: century Gothic;
+    text-align: left;
+    font-size: 12px;
+   
+  }
+  .legend-item {
+    margin-bottom:9px;
+    font-family: century Gothic;
+  }
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+  
+  }
+  
+  .boton-pdf {
+    background-color: #4CAF50; /* Color de fondo */
+            border: none; /* Sin borde */
+            color: white; /* Color del texto */
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 10px;
+            border-width: 2px;
+            font-family: century Gothic;
+            text-align: left;
+            font-size: 12px;
+  }
+
+  
