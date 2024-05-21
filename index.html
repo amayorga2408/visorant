@@ -1,121 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Leaflet.Control.Search</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
-	<link rel="stylesheet" href="examples/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="mapa.css">
+    
+    <link rel="stylesheet" href="leaflet-search-master\src\leaflet-search.css" />
+    
+    <link rel="stylesheet" type="text/css" href="Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+     
+    <title>Convenio ANT</title>
+    <h1>CONVENIO ANT 20236339</h1>
+
+
+    
+    <div class="container">
+        <img src="imagenes/Picture 1.png" alt="imagen" class="imagen">
+    </div>
+
+    <div class="container2">
+        <img src="imagenes/LOGO-2018-ANT02.jpg" alt="imagen2" class="imagen2">
+    </div>
+
+   
+    <select name="select-location" id="select-location">
+    <option value="-1">Seleccione Departamento de Intervención</option>
+    <option value="6.901550924816081,-74.2021163643537">Antioquia</option>
+    <option value="7.040656933164508,-70.6622412903379">Arauca</option>
+    <option value="10.62302349605845,-75.13713021389945">Atlantico</option>
+    <option value="6.191863025516861,-72.46426950147932">Boyacá</option>
+    <option value="9.00987,-74.36686">Bolivar</option>
+    <option value="5.323716433366503,-74.91004125484054">Caldas</option>
+    <option value="1.6191263892701286,-75.57912276277557">Caquetá</option>
+    <option value="5.863933931725386,-71.87690797997658">Casanare</option>
+    <option value="1.9647742953419078,-76.96823256787327">Cauca</option>
+    <option value="8.793453226724788,-75.88483590142215">Córdoba</option>
+    <option value="9.49804,-74.10377">Cesar</option>
+    <option value="5.12710445200524,-74.14497152699775">Cundinamarca</option>
+    <option value="2.972439506875362,-75.22253236624452">Huila</option>
+    <option value="10.897390523622636,-72.89720333546515">La Guajira</option>
+    <option value="3.1258,-73.1415">Meta</option>
+    <option value="9.49828,-74.09561">Magdalena</option>
+    <option value="1.4929674467141318,-77.51605016685716">Nariño</option>
+    <option value="1.152673890711325,-76.65890642817273">Putumayo</option>
+    <option value="4.943899087855643,-75.7497305266076">Risaralda</option>
+    <option value="7.359561771077604,-73.89717943853367">Santander</option>
+    <option value="8.79929514845441,-75.1238293672883">Sucre</option>
+    <option value="3.7256678318801466,-75.51629005348309">Tolima</option>
+    <option value="4.126354536669007,-76.23124549100878">Valle del Cauca</option>
+    <option value="5.499137949737251,-70.43216349279736">Vichada</option>
+    
+</select>
+    
 </head>
- 
-<body id="home">
 
-<a href="mapa".html">About</a>
+<body>
 
 
+<button class="boton-pdf" onclick="abrirPDF()">INFORME TRIMESTRAL</button>
 
-<h2>Leaflet.Control.Search</h2>
+<div id="map"></div>
 
-<div id="desc">
-	A Leaflet Control for search markers/features location by attribute<br />
-	and much more.
-	<div style="position:absolute;top:0;right:-120px">
-		<iframe src="http://ghbtns.com/github-btn.html?user=stefanocudini&amp;repo=leaflet-search&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20px"></iframe>
-	</div>
-	<br />
-	Other useful stuff for <a href="https://opengeo.tech/maps/">Web Mapping...</a>
-</div>
+<div id="legend" class="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></div>
 
-<div style="clear:both">
-If any of these open source solutions help your work and saved you time consider sending a donation
-<form style="display: inline-block; vertical-align: middle;" action="https://www.paypal.com/donate" method="post" target="_top">
-	<input type="hidden" name="business" value="RK9Z26RBUTG4U">
-	<input type="hidden" name="no_recurring" value="0">
-	<input type="hidden" name="item_name" value="Your donation helps me keep alive the open source projects that I share for you">
-	<input type="hidden" name="currency_code" value="EUR">
-	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
-	<img alt="" border="0" src="https://www.paypal.com/en_IT/i/scr/pixel.gif" width="1" height="1" q9ndu8q2m="">
-</form>
-</div>
-
-
-<div class="contents">
-	<h4>Features</h4>
-	<ul id="ff">
-		<li>Autocomplete</li>
-		<li>No require external Ajax libs</li>		
-		<li>Retrieve data locations by Ajax/Jsonp</li>
-		<li>Pre-filtering data from Ajax/Jsonp</li>
-		<li>Complete fields remapping for remote Jsonp service</li>
-		<li>Data source callback support</li>
-		<li>Localization placeholder and text alert</li>
-		<li>Autozoom on location founded</li>
-		<li>Autoresize textbox</li>
-		<li>Customize tooltip menu</li>		
-		<li>Many options to customize the behavior</li>
-		<li>Support search in features collection</li>
-		<li>Render Search Box Outside the Leaflet Map</li>
-		<li>AMD and CommonJS compatible</li>
-	</ul>
-</div>
-<div class="contents">
-	<h4>Examples</h4>
-	<ul id="examples">
-		<li><a href="examples/simple.html">Simple</a></li>
-		<li><a href="examples/multiple-layers.html">Multiple Layers</a></li>
-		<li><a href="examples/outside.html">Outside the Map</a></li>
-		<li><a href="examples/geojson-layer.html">GeoJSON features</a></li>
-		<li><a href="examples/ajax.html">Ajax with Custom Icon</a></li>
-		<li><a href="examples/jsonp.html">Jsonp</a></li>
-		<li><a href="examples/ajax-jquery.html">Ajax by jQuery</a></li>
-		<li><a href="examples/custom-source-data.html">Custom static data using sourceData option</a></li>
-		<li><a href="examples/jsonp-filtered.html">Jsonp Filtered</a></li>
-		<li><a href="examples/custom-tip.html">Custom Tip Item</a></li>		
-		<li><a href="examples/geocoding-google.html">GeoCoding - Google</a></li>
-		<li><a href="examples/geocoding-nominatim.html">GeoCoding - OSM Nominatim</a></li>
-		<li><a href="examples/mobile.html">Mobile styled</a></li>
-		<li><a href="examples/methods.html">Search text by method</a></li>
-		<li><a href="examples/fuzzy.html">Custom filter, Fuzzy Search</a></li>
-		<li><a href="examples/requirejs.html">RequireJS module loading</a></li>
-		<li><a href="examples/location-url.html">Location to website</a></li>
-		<li><a href="examples/popup.html">Search in popup content</a></li>
-	</ul>
-</div>
-<div class="contents">
-	<h4>Code repositories</h4>
-	<a target="_blank" href="https://github.com/stefanocudini/leaflet-search">Github.com</a>
-	<br />	
-	<a target="_blank" href="https://npmjs.org/package/leaflet-search">Node Packaged Module</a>
-	<br />	
-	<h4>Website</h4>
-	<a href="https://opengeo.tech/maps/leaflet-search/">opengeo.tech/maps/leaflet-search</a>
-	<br />
-
-	<h4>Download</h4>
-	<ul>
-		<li><a href="https://github.com/stefanocudini/leaflet-search/archive/master.zip">Dev Pack (.zip)</a></li>
-		<li><a href="dist/leaflet-search.src.js">Source Code (.js)</a></li>
-		<li><a href="dist/leaflet-search.min.js">Compressed (.min.js)</a></li>		
-	</ul>
-</div>
-
-<div id="copy"><a href="https://opengeo.tech/">Website</a> &bull; <a rel="author" href="https://opengeo.tech/stefano-cudini/">Stefano Cudini</a></div>
-	
-<a href="https://github.com/stefanocudini/leaflet-search"><img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
-<div style="clear:both;font-size:.85em;margin-bottom:1em">
-	<b>Publish your application:</b>
-	<a href="https://github.com/stefanocudini/leaflet-search/wiki/Websites-that-use-Leaflet-Control-Search">Websites that use Leaflet Control Search</a>
-	<br />
-	<br />
-	<b>For questions and bugs:</b> I recommend you to <a href="https://github.com/stefanocudini/leaflet-search/issues">create New Issue</a> on Github repository.</strong><br />
-	Or to obtain a fast response consult <a href="https://groups.google.com/forum/?hl=it&fromgroups=#!forum/leaflet-js">Official Leaflet community forum</a>.<br />
-</div>
-
-<div id="comments">
-	<div id="disqus_thread"></div>
-</div>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+   
+    <script src="leaflet-search-master\src\leaflet-search.js"></script>
+   
+    <script src="Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+    
+    <script src="./layers/deptos.js"></script>
+     
+     <script src="./layers/Depto84.js"></script>
+    
+    <script src="./layers/lonjacun.js"></script>
+    <script src="./layers/geovalores.js"></script>
+   
+    <script src="mapa.js"></script>
+   
+    <script>
+        function abrirPDF() {
+            F
+            var urlPDF ='/Informe/Informe trimestral.pdf';
+           
+            window.open(urlPDF, '_blank');
+        }
+    </script>
 
 
 </body>
