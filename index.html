@@ -3,68 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
     <link rel="stylesheet" type="text/css" href="mapa.css">
-    <link rel="stylesheet" href="leaflet-search-master/src/leaflet-search.css" />
+    
+    <link rel="stylesheet" href="leaflet-search-master\src\leaflet-search.css" />
+    
     <link rel="stylesheet" type="text/css" href="Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+     
     <title>Convenio ANT</title>
-</head>
-<body>
     <h1>CONVENIO ANT 20236339</h1>
+
+
+   <!-- 
     <div class="logos-container">
         <img src="imagenes/Picture 1.png" alt="imagen" class="imagen">
         <img src="imagenes/LOGO-2018-ANT02.jpg" alt="imagen2" class="imagen2">
     </div>
+    -->
 
+   
     <select name="select-location" id="select-location">
-        <option value="-1">Seleccione Departamento de Intervención</option>
-        <option value="6.901550924816081,-74.2021163643537">Antioquia</option>
-        <option value="7.040656933164508,-70.6622412903379">Arauca</option>
-        <option value="10.62302349605845,-75.13713021389945">Atlantico</option>
-        <option value="6.191863025516861,-72.46426950147932">Boyacá</option>
-        <option value="9.00987,-74.36686">Bolivar</option>
-        <option value="5.323716433366503,-74.91004125484054">Caldas</option>
-        <option value="1.6191263892701286,-75.57912276277557">Caquetá</option>
-        <option value="5.863933931725386,-71.87690797997658">Casanare</option>
-        <option value="1.9647742953419078,-76.96823256787327">Cauca</option>
-        <option value="8.793453226724788,-75.88483590142215">Córdoba</option>
-        <option value="9.49804,-74.10377">Cesar</option>
-        <option value="5.12710445200524,-74.14497152699775">Cundinamarca</option>
-        <option value="2.972439506875362,-75.22253236624452">Huila</option>
-        <option value="10.897390523622636,-72.89720333546515">La Guajira</option>
-        <option value="3.1258,-73.1415">Meta</option>
-        <option value="9.49828,-74.09561">Magdalena</option>
-        <option value="1.4929674467141318,-77.51605016685716">Nariño</option>
-        <option value="1.152673890711325,-76.65890642817273">Putumayo</option>
-        <option value="4.943899087855643,-75.7497305266076">Risaralda</option>
-        <option value="7.359561771077604,-73.89717943853367">Santander</option>
-        <option value="8.79929514845441,-75.1238293672883">Sucre</option>
-        <option value="3.7256678318801466,-75.51629005348309">Tolima</option>
-        <option value="4.126354536669007,-76.23124549100878">Valle del Cauca</option>
-        <option value="5.499137949737251,-70.43216349279736">Vichada</option>
-    </select>
-
-    <button class="boton-pdf" onclick="abrirPDF()">INFORME TRIMESTRAL</button>
-
-    <div id="map"></div>
-    <div id="legend" class="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></div>
+    <option value="-1">Seleccione Departamento de Intervención</option>
+    <option value="6.901550924816081,-74.2021163643537">Antioquia</option>
+    <option value="7.040656933164508,-70.6622412903379">Arauca</option>
+    <option value="10.62302349605845,-75.13713021389945">Atlantico</option>
+    <option value="6.191863025516861,-72.46426950147932">Boyacá</option>
+    <option value="9.00987,-74.36686">Bolivar</option>
+    <option value="5.323716433366503,-74.91004125484054">Caldas</option>
+    <option value="1.6191263892701286,-75.57912276277557">Caquetá</option>
+    <option value="5.863933931725386,-71.87690797997658">Casanare</option>
+    <option value="1.9647742953419078,-76.96823256787327">Cauca</option>
+    <option value="8.793453226724788,-75.88483590142215">Córdoba</option>
+    <option value="9.49804,-74.10377">Cesar</option>
+    <option value="5.12710445200524,-74.14497152699775">Cundinamarca</option>
+    <option value="2.972439506875362,-75.22253236624452">Huila</option>
+    <option value="10.897390523622636,-72.89720333546515">La Guajira</option>
+    <option value="3.1258,-73.1415">Meta</option>
+    <option value="9.49828,-74.09561">Magdalena</option>
+    <option value="1.4929674467141318,-77.51605016685716">Nariño</option>
+    <option value="1.152673890711325,-76.65890642817273">Putumayo</option>
+    <option value="4.943899087855643,-75.7497305266076">Risaralda</option>
+    <option value="7.359561771077604,-73.89717943853367">Santander</option>
+    <option value="8.79929514845441,-75.1238293672883">Sucre</option>
+    <option value="3.7256678318801466,-75.51629005348309">Tolima</option>
+    <option value="4.126354536669007,-76.23124549100878">Valle del Cauca</option>
+    <option value="5.499137949737251,-70.43216349279736">Vichada</option>
     
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="leaflet-search-master/src/leaflet-search.js"></script>
+</select>
+    
+</head>
+
+<body>
+
+
+<button class="boton-pdf" onclick="abrirPDF()">INFORME TRIMESTRAL</button>
+
+<div id="map"></div>
+
+<div id="legend" class="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+   
+    <script src="leaflet-search-master\src\leaflet-search.js"></script>
+   
     <script src="Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+    
     <script src="./layers/deptos.js"></script>
-    <script src="./layers/Depto84.js"></script>
+     
+     <script src="./layers/Depto84.js"></script>
+    
     <script src="./layers/lonjacun.js"></script>
     <script src="./layers/geovalores.js"></script>
+   
     <script src="mapa.js"></script>
-    
+   
     <script>
         function abrirPDF() {
-            var urlPDF = '/Informe/Informe trimestral.pdf';
+            F
+            var urlPDF ='/Informe/Informe trimestral.pdf';
+           
             window.open(urlPDF, '_blank');
         }
     </script>
+
+
 </body>
 </html>
